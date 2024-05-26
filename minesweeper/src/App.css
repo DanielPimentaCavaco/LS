@@ -1,9 +1,16 @@
-#container{
-  margin: 20px 0 10px 0;
-  position: relative;
-  margin: 20px auto;
-  display: flex;
+/* Centralizar todo o conteúdo da página */
+body, html {
   height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Cor de fundo suave para melhor visualização */
+}
+
+#container {
+  position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -13,35 +20,81 @@
   width: 500px;
   min-width: 450px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para melhor visibilidade */
+  margin: auto; /* Certifica-se de que o container está centralizado */
 }
 
-#control-panel{
+.title-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Arial Black', sans-serif; /* Fonte atrativa */
+  font-size: 36px; /* Tamanho da fonte */
+  color: #333; /* Cor da fonte */
+  text-align: center;
+}
+
+#control-panel {
   border-radius: 10px;
   font-size: smaller;
   color: grey;
   width: 100%;
-  margin: 15px 0px;
+  margin: 15px 0;
   border: 3px solid black;
   padding: 15px 20px 10px 20px;
-}
-
-.space1{
   display: flex;
-  flex-direction: row;
-  justify-content:space-between;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Ajusta o espaçamento entre os itens */
+}
+
+form {
+  display: flex;
   align-items: center;
-  gap: 100px;
 }
 
-form{
-  justify-self: left;
+label {
+  margin-right: 5px; /* Espaço de 5 pixels entre o label e o dropdown */
 }
 
-#timer{
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaço entre o dropdown e o botão Start! */
+}
+
+#timer {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+
+.board {
+  display: grid;
+  gap: 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  background-color: #ddd;
+}
 
 /* fazer com que em gamestart, apareca o tempo e em game over apareça o no. de minas */
