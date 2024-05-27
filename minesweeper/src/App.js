@@ -37,8 +37,8 @@ function App() {
       )}
       {gameStarted && (
         <GameBoard
-          rows={level === 1 ? 9 : level === 2 ? 16 : 30}
-          cols={level === 1 ? 9 : level === 2 ? 16 : 16}
+          rows={level === 1 ? 9 : level === 2 ? 16 : 16}
+          cols={level === 1 ? 9 : level === 2 ? 16 : 30}
           mines={mines}
         />
       )}
