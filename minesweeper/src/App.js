@@ -7,10 +7,12 @@ import './App.css';
 function App() {
   const [level, setLevel] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [mines, setMines] = useState(0);
 
   const handleLevelChange = (selectedLevel) => {
     setLevel(selectedLevel);
     setGameStarted(false); // Reinicia o jogo ao mudar de nível
+    setMines(selectedLevel === 1 ? 10 : selectedLevel === 2 ? 40 : 99);
   };
 
   const startGame = () => {
@@ -23,9 +25,9 @@ function App() {
 
   return (
     <div id="container">
-      <div className="title-container">
+      <Header>
         <h1>Minesweeper</h1>
-      </div>
+      </Header>
       {!gameStarted && (
         <ControlPanel
           level={level}
@@ -37,6 +39,7 @@ function App() {
         <GameBoard
           rows={level === 1 ? 9 : level === 2 ? 16 : 30}
           cols={level === 1 ? 9 : level === 2 ? 16 : 16}
+          mines={mines}
         />
       )}
     </div>

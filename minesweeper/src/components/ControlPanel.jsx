@@ -38,7 +38,7 @@ function ControlPanel({ level, onLevelChange, onStartGame}) {
             )}
             </p>
           </div>
-            <p> Numero de minas identificadas:</p>
+            <p> Número de minas identificadas:</p>
       </section>
   )
 }

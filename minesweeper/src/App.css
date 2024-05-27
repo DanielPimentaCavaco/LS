@@ -24,7 +24,7 @@ body, html {
   margin: auto; /* Certifica-se de que o container está centralizado */
 }
 
-.title-container {
+.Header {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -95,6 +95,9 @@ label {
   height: 20px;
   border: 1px solid #000;
   background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* fazer com que em gamestart, apareca o tempo e em game over apareça o no. de minas */
