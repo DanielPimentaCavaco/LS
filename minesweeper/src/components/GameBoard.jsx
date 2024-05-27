@@ -57,7 +57,7 @@ function GameBoard({ rows, cols, mines }) {
         ) {
           board[newRow][newCol].isRevealed = true;
           if (countAdjacentMines(newRow, newCol) === 0) {
-            revealEmptyCells(board, newRow, newCol); // Recursivamente revele as células vazias vizinhas
+            revealEmptyCells(board, newRow, newCol); // Revela as células vizinhas vazias
           }
         }
       });
@@ -72,7 +72,7 @@ function GameBoard({ rows, cols, mines }) {
 
     if (newBoard[row][col].isBomb) {
       setGameOver(true);
-      // Reveal all bombs
+      // Revela todas as bombas
       newBoard.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
           if (cell.isBomb) {
@@ -81,7 +81,7 @@ function GameBoard({ rows, cols, mines }) {
         });
       });
     } else if (countAdjacentMines(row, col) === 0) {
-      // If the cell has no adjacent mines, recursively reveal neighboring cells
+      // Caso a célula não tenha minas adjacentes, revela todas as outras
       revealEmptyCells(newBoard, row, col);
     }
 

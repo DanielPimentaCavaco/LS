@@ -1,11 +1,10 @@
-/* Centralizar todo o conteúdo da página */
 body, html {
   height: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* Cor de fundo suave para melhor visualização */
+  background-color: #f0f0f0; 
 }
 
 #container {
@@ -20,8 +19,8 @@ body, html {
   width: 500px;
   min-width: 450px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para melhor visibilidade */
-  margin: auto; /* Certifica-se de que o container está centralizado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: auto; 
 }
 
 .Header {
@@ -32,9 +31,9 @@ body, html {
 }
 
 .title {
-  font-family: 'Arial Black', sans-serif; /* Fonte atrativa */
-  font-size: 36px; /* Tamanho da fonte */
-  color: #333; /* Cor da fonte */
+  font-family: 'Arial Black', sans-serif; 
+  font-size: 36px;
+  color: #333; 
   text-align: center;
 }
 
@@ -48,13 +47,13 @@ body, html {
   padding: 15px 20px 10px 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha os itens à esquerda */
+  align-items: flex-start; 
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Ajusta o espaçamento entre os itens */
+  gap: 10px; 
 }
 
 form {
@@ -63,13 +62,13 @@ form {
 }
 
 label {
-  margin-right: 5px; /* Espaço de 5 pixels entre o label e o dropdown */
+  margin-right: 5px;
 }
 
 .dropdown-container {
   display: flex;
   align-items: center;
-  gap: 5px; /* Espaço entre o dropdown e o botão Start! */
+  gap: 5px; 
 }
 
 #timer {
