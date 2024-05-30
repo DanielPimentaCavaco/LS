@@ -1,23 +1,27 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-function Timer({ timeout, onTimer }) {
-  const [seconds, setSeconds] = useState(timeout);
-  const [idInterval, setIdInterval] = useState(null);
+function Timer({ gameStarted, gameOver }) {
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
-    }, 1000);
-    setIdInterval(interval);
+    let interval;
+
+    if (gameStarted && !gameOver) {
+      interval = setInterval(() => {
+        setSeconds(prevSeconds => prevSeconds + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+      if (!gameStarted) {
+        setSeconds(0); // Reset timer when game is not started
+      }
+    }
+
     return () => clearInterval(interval);
-  }, []);
+  }, [gameStarted, gameOver]);
 
- // useEffect(() => {
-   // onTimer(seconds);}
-    //if (seconds === 0) clearInterval(idInterval);
-  //}, [seconds, onTimer, idInterval]);
-
-  //return <>{seconds}</>;
+  return <>{seconds}</>;
 }
 
 export default Timer;
+

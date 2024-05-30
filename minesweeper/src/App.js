@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import ControlPanel from './components/ControlPanel';
 import GameBoard from './components/GameBoard';
@@ -8,6 +8,7 @@ function App() {
   const [level, setLevel] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [mines, setMines] = useState(0);
+
 
   const handleLevelChange = (selectedLevel) => {
     setLevel(selectedLevel);
@@ -23,18 +24,27 @@ function App() {
     }
   };
 
+  const handleTimeout = () => {
+    setGameStarted(false);
+    alert('Time is up!');
+  };
+
+  
   return (
     <div id="container">
       <Header>
         <h1>Minesweeper</h1>
       </Header>
-      {!gameStarted && (
+      
+    
         <ControlPanel
           level={level}
           onLevelChange={handleLevelChange}
           onStartGame={startGame}
-        />
-      )}
+          gameStarted={gameStarted}
+                 /> 
+     
+      
       {gameStarted && (
         <GameBoard
           rows={level === 1 ? 9 : level === 2 ? 16 : 16}

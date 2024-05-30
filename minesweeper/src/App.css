@@ -32,28 +32,29 @@ body, html {
 
 .title {
   font-family: 'Arial Black', sans-serif; 
-  font-size: 36px;
+  font-size: 20px;
   color: #333; 
   text-align: center;
 }
 
-#control-panel {
-  border-radius: 10px;
+
+#panel-control {
+  
   font-size: smaller;
   color: grey;
   width: 100%;
   margin: 15px 0;
-  border: 3px solid black;
+  
   padding: 15px 20px 10px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
+  flex-direction: row;
+  align-items: center; /* Alinha os itens à esquerda */
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px; 
+  gap: 10px; /* Ajusta o espaçamento entre os itens */
 }
 
 form {
@@ -62,20 +63,27 @@ form {
 }
 
 label {
-  margin-right: 5px;
+  margin-right: 5px; /* Espaço de 5 pixels entre o label e o dropdown */
 }
 
 .dropdown-container {
   display: flex;
   align-items: center;
-  gap: 5px; 
+  gap: 5px; /* Espaço entre o dropdown e o botão Start! */
 }
 
-#timer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+#space2{
+  margin-left: 110px;
 }
+
+  #timer {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 100%; 
+  }
 
 
 .board {
@@ -97,6 +105,40 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.game-over-message {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 10; 
+}
+
+.game-over-message p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.game-over-message button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.game-over-message button:hover {
+  background-color: gray
 }
 
 /* fazer com que em gamestart, apareca o tempo e em game over apareça o no. de minas */

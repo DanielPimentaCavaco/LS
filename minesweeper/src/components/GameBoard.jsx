@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import Timer from "./Timer";
+import GameOverFace from "../helpers/GAMEOVER-face.png"
 
 function GameBoard({ rows, cols, mines }) {
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
-
-  useEffect(() => {
-    const createBoard = () => {
+  
+  const createBoard = () => {
       const newBoard = [];
       for (let i = 0; i < rows; i++) {
         const row = [];
@@ -17,7 +18,7 @@ function GameBoard({ rows, cols, mines }) {
       }
       return newBoard;
     };
-
+    
     const plantMines = (initialBoard) => {
       const newBoard = [...initialBoard];
       let minesPlanted = 0;
@@ -32,14 +33,15 @@ function GameBoard({ rows, cols, mines }) {
       console.log(newBoard);
       setBoard(newBoard);
     };
-
+    
+    useEffect(() => {
+      initializeBoard();
+    }, [rows, cols, mines]);
+  
     const initializeBoard = () => {
       const newBoard = createBoard();
       plantMines(newBoard);
     };
-
-    initializeBoard();
-  }, [rows, cols, mines]);
 
   const revealEmptyCells = (board, row, col) => {
     const deltas = [-1, 0, 1];
@@ -110,6 +112,12 @@ function GameBoard({ rows, cols, mines }) {
     return count;
   };  
 
+  
+  const gameRestart = () => {
+    setGameOver(false);
+    initializeBoard();
+  }
+
   const renderBoard = () => {
     return board.map((row, rowIndex) => (
       <div key={rowIndex} className="row">
@@ -130,11 +138,20 @@ function GameBoard({ rows, cols, mines }) {
     ));
   };
 
+  
+  //colocar numero de minas ->>
   return (
     <div>
-      <div className="board">{renderBoard()}</div>
-      {gameOver && <div className="game-over-message">Game Over!</div>}
-    </div>
+      <div id='timer'>
+      <Timer gameStarted={!gameOver} gameOver={gameOver} />
+      </div>
+      <div className="board" id='gameoverpanel'>{renderBoard()}</div>
+      {gameOver && <div className="game-over-message">
+      <img src={GameOverFace} alt='GAMEOVER'style={{ width: '80px', height: 'auto' }}></img>
+      <p> Numero de minas indentificadas: xx</p>  
+      <button onClick={gameRestart}> Try again?</button>
+      </div>}
+      </div>
   );
 }
 
